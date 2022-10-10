@@ -468,7 +468,7 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
 
     <body style="background-color: #eef8eb;">
         <center>
-      ![My Image](A student-led initiative at the british international school, abu dhabi.png)
+      ![alt text](http://url/to/A student-led initiative at the british international school, abu dhabi.png)
         </center>
         
 

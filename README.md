@@ -468,7 +468,7 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
 
     <body style="background-color: #eef8eb;">
         <center>
-<img src="incwebsite/A student-led initiative at the british international school, abu dhabi.png" alt="The inclusivity club, a student-led initiative at the british international school abu dhabi">
+<img src="./A student-led initiative at the british international school, abu dhabi.png">
         </center>        </center>
         
 

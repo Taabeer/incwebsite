@@ -1,0 +1,585 @@
+<link href="https://fonts.googleapis.com/css?family=Waiting+for+the+Sunrise" rel="stylesheet" type="text/css"/>
+<style>
+@import url('https://fonts.googleapis.com/css?family=Varela+Round');
+html, body {
+    overflow-x: hidden;
+    height: 100%;
+}
+body {
+    background: #fff;
+    padding: 0;
+    margin: 0;
+    font-family: 'Varela Round', sans-serif;
+}
+.header {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 100%;
+    box-shadow: none;
+    background-color: #4665f0;
+    position: fixed;
+    height: 60px!important;
+    overflow: hidden;
+    z-index: 10;
+}
+.main {
+    margin: 0 auto;
+    display: block;
+    height: 100%;
+    margin-top: 60px;
+}
+.mainInner{
+    display: table;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+.mainInner div{
+    display:table-cell;
+    vertical-align: middle;
+    font-size: 3em;
+    font-weight: bold;
+    letter-spacing: 1.25px;
+}
+#sidebarMenu {
+    height: 100%;
+    position: fixed;
+    left: 0;
+    width: 250px;
+    margin-top: 60px;
+    transform: translateX(-250px);
+    transition: transform 250ms ease-in-out;
+    background: linear-gradient(180deg, #4665f0 0%, #58b974 100%);
+}
+.sidebarMenuInner{
+    margin:0;
+    padding:0;
+    border-top: 1px solid rgba(255, 255, 255, 0.10);
+}
+.sidebarMenuInner li{
+    list-style: none;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 20px;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+}
+.sidebarMenuInner li span{
+    display: block;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.50);
+}
+.sidebarMenuInner li a{
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+}
+input[type="checkbox"]:checked ~ #sidebarMenu {
+    transform: translateX(0);
+}
+
+input[type=checkbox] {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    display: none;
+}
+.sidebarIconToggle {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    cursor: pointer;
+    position: absolute;
+    z-index: 99;
+    height: 100%;
+    width: 100%;
+    top: 22px;
+    left: 15px;
+    height: 22px;
+    width: 22px;
+}
+.spinner {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background-color: #fff;
+}
+.horizontal {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    position: relative;
+    float: left;
+    margin-top: 3px;
+}
+.diagonal.part-1 {
+    position: relative;
+    transition: all 0.3s;
+    box-sizing: border-box;
+    float: left;
+}
+.diagonal.part-2 {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    position: relative;
+    float: left;
+    margin-top: 3px;
+}
+input[type=checkbox]:checked ~ .sidebarIconToggle > .horizontal {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    opacity: 0;
+}
+input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-1 {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    transform: rotate(135deg);
+    margin-top: 8px;
+}
+input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    transform: rotate(-135deg);
+    margin-top: -9px;
+}
+.myOtherTable { width:400px;background-color:#f0f0e5;color:#000;font-size:18px; }
+        .myOtherTable th { background-color:#54c081;color:white;width:50%;font-variant:normal; }
+        .myOtherTable td, .myOtherTable th { padding:5px;border:0; }
+        .myOtherTable td { font-family:Georgia, Garamond, serif; border-bottom:1px solid #BDB76B;height:100px; }
+        h2 { font-family: 'Waiting for the Sunrise', cursive; 
+  font-size:20px; 
+  margin: 10px 30px; 
+  letter-spacing: 5px; 
+  font-weight: bold;
+  text-align: center;}
+  .button-85 
+{
+  padding: 0.6em 2em;
+  border:none;
+  outline:none;
+  color:rgb(255, 255, 255);
+  background:#111;
+  cursor:pointer;
+  position:relative;
+  z-index:0;
+  border-radius:10px;
+  user-select:none;
+  -webkit-user-select:none;
+  touch-action:manipulation;
+}
+
+.button-85:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-button-85 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowing-button-85 {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.button-85:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+p{
+    font-family: "Times New Roman", Times, serif;
+}
+</style>
+
+
+<body>
+<div class="header"></div>
+  <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+  <label for="openSidebarMenu" class="sidebarIconToggle">
+    <div class="spinner diagonal part-1"></div>
+    <div class="spinner horizontal"></div>
+    <div class="spinner diagonal part-2"></div>
+  </label>
+  <div id="sidebarMenu">
+    <ul class="sidebarMenuInner">
+      <li><a href="./home.html" target="blank">Home</a></li>
+      <li><a href="./namejarfinal.html" target="_blank">The Name Jar</a></li>
+      <li><a href="./emmanuelsdreamfinal.html" target="_blank">Emmanuel's Dream</a></li>
+      <li><a href="./sulwefinal.html" target="_blank">Sulwe</a></li>
+      <li><a href="./ilovemyhairfinal.html" target="_blank">I Love My Hair</a></li>
+      <li><a href="./Allthewaystobesmartfinal.html" target="_blank">All The Ways To Be Smart</a></li>
+      <li><a href="./about.html" target="blank">About Us<span>Meet the team</span></a></li>
+    </ul>
+  </div>
+  <link href="https://fonts.googleapis.com/css?family=Waiting+for+the+Sunrise" rel="stylesheet" type="text/css"/>
+    <style type="text/css">
+        
+       
+        h2 { font-family: 'Waiting for the Sunrise', cursive; 
+  font-size:20px; 
+  margin: 10px 30px; 
+  letter-spacing: 5px; 
+  font-weight: bold;
+  text-align: center;}
+  .button-85 
+{
+  padding: 0.6em 2em;
+  border:none;
+  outline:none;
+  color:rgb(255, 255, 255);
+  background:#111;
+  cursor:pointer;
+  position:relative;
+  z-index:0;
+  border-radius:10px;
+  user-select:none;
+  -webkit-user-select:none;
+  touch-action:manipulation;
+}
+
+.button-85:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-button-85 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowing-button-85 {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.button-85:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+.animate-charcter{
+  background-image: linear-gradient(
+    -225deg,
+    #231557 0%,
+    #44107a 29%,
+    #ff1361 67%,
+    #fff800 100%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite;
+  display: inline-block;
+      font-size: 20px;
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
+
+  .wordbank { 
+            background-color: #f9cee5;
+            border: 2px solid rgb(254, 21, 40);
+            border-radius: 10px;
+            width: 650px;
+            height: auto;
+            padding: 5px;
+            font-size: 16px;
+  }
+  @import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700');
+
+body{
+background-color: rgb(237, 237, 237);
+}
+
+#pricing{
+width: 989px;
+margin: 100px auto;
+font-family: 'Open Sans', Helvetica;
+}
+
+.price_card{
+width: 300px;
+background: rgb(255, 255, 255);
+display: inline-table;
+top: 0;
+}
+.price_card:not(:last-child){
+margin-right: 40px;
+}
+.header2{
+color: rgb(255, 255, 255);
+}
+.alpha .header2{
+background: rgb(86, 219, 153);
+}
+.bravo .header2{
+background: rgb(246, 77, 77);
+}
+.price{
+width: 100%;
+font-size: 80px;
+font-weight: 300;
+display: block;
+text-align: center;
+padding: 30px 0 10px;
+}
+.name{
+width: 100%;
+font-size: 15px;
+font-weight: 700;
+display: block;
+text-align: center;
+padding: 0 0 30px;
+}
+.features{
+list-style: none;
+text-align: center;
+color: rgb(138, 138, 138);
+margin: 0;
+padding: 0;
+}
+.features li{
+margin: 0 35px;
+padding: 20px 15px;
+width: 200px;
+}
+.features li:not(:last-child){
+border: 1px solid rgb(242, 242, 242);
+border-top: 0;
+border-left: 0;
+border-right: 0;
+}
+.container {
+  font-family: 'Waiting for the Sunrise', cursive; 
+  font-size:20px; 
+  margin: 10px 50px; 
+  letter-spacing: 6px; 
+  font-weight: bold;
+  color:rgb(162, 11, 11)
+}
+
+ </style>
+
+
+    <head><title>Emmanuel's Dream</title></head>
+    <body>
+<br><br>
+         <center> <h1>Emmanuel's Dream</h1> </center>
+        <!-- Activity 1 below-->
+        <h2>
+            Task 1 - Listen to a reading of "Emmanuel's Dream".
+        </h2>
+         <center> <iframe width="560" height="315" src="https://www.youtube.com/embed/nilrUvyWhnI" frameborder="0" allowfullscreen></iframe>
+        </iframe></center>
+        <br><br><br>
+        <!-- Activity 2 below-->
+        <h2> Task 2 - Quiz time! </h2> 
+         <center> <button class = "button-85"onclick="myFunction()">Quiz!</button></center>
+         <Script> function myFunction() { onclick=location.href="quiz.html"; }
+         </Script>
+<br><BR><br>
+        <!-- Activity 3 below-->
+        <center> 
+        <h2>Task 3 - Fill in the blanks:</h2>
+        <div class = "wordbank"> 
+          <p> Determined,     Brave,     Respect,    Disability,    Disrespectful</p>
+
+        </div>
+        
+        <div class ="box"> 
+        <p1> <pre>Word beginning with B: Emmanuel was a very <input type=''text'' name=''testfield'' /> boy.
+            Word beginning with D, means extremely focused to: Emmanuel was <input type=''text'' name=''testfield'' /> to gain peoples respect.
+            Opposite of respectful: The people of Accra were very <input type=''text'' name=''testfield'' /> to Emmanuel.
+            A condition that limits someone, but doesnt define them: Emmanuel was born without a leg, this is a <input type=''text'' name=''testfield'' />, not an inability.
+            We should always treat everyone with <input type=''text'' name=''testfield'' />. </pre>
+        </p1> 
+      </div>
+    </center> 
+<!-- Change this to a different thing -->
+<br>
+    <center>
+      <div class="container">
+        <div id="typedtext"></div>
+        </div>
+      </center>
+      <script>
+        // set up text to print, each item in array is new line
+var aText = new Array(
+"The overarching message of the story is perseverance and resilience", 
+"Never give up"
+);
+var iSpeed = 100; // time delay of print out
+var iIndex = 0; // start printing array at this posision
+var iArrLength = aText[0].length; // the length of the text array
+var iScrollAt = 20; // start scrolling up at this many lines
+ 
+var iTextPos = 0; // initialise text position
+var sContents = ''; // initialise contents variable
+var iRow; // initialise current row
+ 
+function typewriter()
+{
+ sContents =  ' ';
+ iRow = Math.max(0, iIndex-iScrollAt);
+ var destination = document.getElementById("typedtext");
+ 
+ while ( iRow < iIndex ) {
+  sContents += aText[iRow++] + '<br />';
+ }
+ destination.innerHTML = sContents + aText[iIndex].substring(0, iTextPos) + "_";
+ if ( iTextPos++ == iArrLength ) {
+  iTextPos = 0;
+  iIndex++;
+  if ( iIndex != aText.length ) {
+   iArrLength = aText[iIndex].length;
+   setTimeout("typewriter()", 500);
+  }
+ } else {
+  setTimeout("typewriter()", iSpeed);
+ }
+}
+
+
+typewriter();
+      </script>
+        <br><br><br>
+
+         <!--Activity 4 below-->
+        <h2> Task 4 - Fill out the table below. </h2> 
+        <center>
+        <br> <p> Think of a situation where you faced adversity. </p>
+        <p> Write down 3 positive and 3 negative feelings you felt during that situation.</p>
+        <P> Reflect back on those feelings after hearing Emmanuel's story.</P>
+      </center>
+        <center>
+          <div id="pricing">
+              <div class="price_card alpha">
+                <div class="header2">
+                  <span class="price"></span>
+                  <div class="name">Positive Feelings</div>
+                </div>
+                <ul class="features">
+                  <br><br>
+                  <textarea id="w3review" name="w3review" rows="8" cols="30">
+                  </textarea>
+                </ul>
+                <br></br>
+                <span class="tip"></span>
+              </div>
+              <div class="price_card bravo">
+                <div class="header2">
+                  <span class="price"></span>
+                  <div class="name">Negative Feelings </div>
+                </div>
+                <ul class="features">
+                  <br><br>
+                  <textarea id="w3review" name="w3review" rows="8" cols="30">
+                  </textarea>
+                </ul>
+                <br></br>
+                <span class="tip"></span>
+              </div>
+                </ul>
+                <br>
+              </div>
+            </div>
+          </center>
+
+
+
+
+
+<br>
+        <!-- Actviity 4 below-->
+        <h2> Conclusion - 5 Key take-aways:</h2>
+        <center>
+          <div class="container2">
+            <div class="row">
+              <div class="col-md-12 text-center">
+                <h3 class="animate-charcter">Just because someone looks different, does not mean they should be treated differently. Treat everyone with respect and kindness! </h3> <br><br>
+                <h3 class="animate-charcter">Never give up! Always work hard towards your goals.</h3><br><br>
+                <h3 class="animate-charcter">A disability is not an inability! </h3><br><br>
+                <h3 class="animate-charcter">Face everything with courage. Be brave and risk-taking! </h3><br><br>
+                <h3 class="animate-charcter">You are strong. You are smart. You can do anything! </h3><br><br>
+
+              </div>
+            </div>
+          </div>
+          </center>
+    </body>
+    </html>

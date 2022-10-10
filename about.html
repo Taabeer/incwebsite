@@ -1,0 +1,611 @@
+
+ 
+
+<!DOCTYPE html>
+
+<style>
+
+
+
+html {
+
+    box-sizing: border-box;
+
+  }
+
+body {
+
+    background: #fff;
+    padding: 0;
+    margin: 0;
+    /* font-family: "Montserrat", sans-serif; */
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.header {
+
+    display: block;
+
+    margin: 0 auto;
+
+    width: 100%;
+
+    max-width: 100%;
+
+    box-shadow: none;
+
+    background-color: #4665f0;
+
+    position: fixed;
+
+    height: 60px!important;
+
+    overflow: hidden;
+
+    z-index: 10;
+
+}
+
+/*.main {
+
+    margin: 0 auto;
+
+    display: block;
+
+    height: 100%;
+
+    margin-top: 60px;
+
+}
+
+.mainInner{
+
+    display: table;
+
+    height: 100%;
+
+    width: 100%;
+
+    text-align: center;
+
+}
+
+.mainInner div{
+
+    display:table-cell;
+
+    vertical-align: middle;
+
+    font-size: 3em;
+
+    font-weight: bold;
+
+    letter-spacing: 1.25px;
+
+}*/
+
+#sidebarMenu {
+
+    height: 100%;
+
+    position: fixed;
+
+    left: 0;
+
+    width: 250px;
+
+    margin-top: 60px;
+
+    transform: translateX(-250px);
+
+    transition: transform 250ms ease-in-out;
+
+    background: linear-gradient(180deg, #4665f0 0%, #58b974 100%);
+
+}
+
+.sidebarMenuInner{
+
+    margin:0;
+
+    padding:0;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.10);
+
+}
+
+.sidebarMenuInner li{
+
+    list-style: none;
+
+    color: #fff;
+
+    text-transform: uppercase;
+
+    font-weight: bold;
+
+    padding: 20px;
+
+    cursor: pointer;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+
+}
+
+.sidebarMenuInner li span{
+
+    display: block;
+
+    font-size: 14px;
+
+    color: rgba(255, 255, 255, 0.50);
+
+}
+
+.sidebarMenuInner li a{
+
+    color: #fff;
+
+    text-transform: uppercase;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    text-decoration: none;
+
+}
+
+input[type="checkbox"]:checked ~ #sidebarMenu {
+
+    transform: translateX(0);
+
+}
+
+ 
+
+input[type=checkbox] {
+
+    transition: all 0.3s;
+
+    box-sizing: border-box;
+
+    display: none;
+
+}
+
+.sidebarIconToggle {
+
+    transition: all 0.3s;
+
+    box-sizing: border-box;
+
+    cursor: pointer;
+
+    position: fixed;
+
+    z-index: 99;
+
+    height: 100%;
+
+    width: 100%;
+
+    top: 22px;
+
+    left: 15px;
+
+    height: 22px;
+
+    width: 22px;
+
+}
+
+.spinner {
+
+    transition: all 0.3s;
+
+    box-sizing: border-box;
+
+    position: absolute;
+
+    height: 3px;
+
+    width: 100%;
+
+    background-color: #fff;
+
+}
+
+.horizontal {
+
+    transition: all 0.3s;
+
+    box-sizing: border-box;
+
+    position: relative;
+
+    float: left;
+
+    margin-top: 3px;
+
+}
+
+.diagonal.part-1 {
+
+    position: relative;
+
+    transition: all 0.3s;
+
+    box-sizing: border-box;
+
+    float: left;
+
+}
+
+.diagonal.part-2 {
+
+    transition: all 0.3s;
+
+    box-sizing: border-box;
+
+    position: relative;
+
+    float: left;
+
+    margin-top: 3px;
+
+}
+
+input[type=checkbox]:checked ~ .sidebarIconToggle > .horizontal {
+
+    transition: all 0.3s;
+
+    box-sizing: border-box;
+
+    opacity: 0;
+
+}
+
+input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-1 {
+
+    transition: all 0.3s;
+
+    box-sizing: border-box;
+
+    transform: rotate(135deg);
+
+    margin-top: 8px;
+
+}
+
+input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
+
+    transition: all 0.3s;
+
+    box-sizing: border-box;
+
+    transform: rotate(-135deg);
+
+    margin-top: -9px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*, *:before, *:after {
+
+    box-sizing: inherit;
+
+  }
+
+ 
+
+  .column {
+
+    float: left;
+
+    width: 33.3%;
+
+    margin-bottom: 16px;
+
+    padding: 0 8px;
+
+  }
+
+ 
+
+  .card {
+
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+    margin: 8px;
+
+  }
+
+ 
+
+  .about-section {
+
+    padding: 50px;
+
+    text-align: center;
+
+
+    color: black;
+
+  }
+
+ 
+
+  .container {
+
+    padding: 0 16px;
+
+  }
+
+ 
+
+  .container::after, .row::after {
+
+    content: "";
+
+    clear: both;
+
+    display: table;
+
+  }
+
+ 
+
+  .title {
+
+    color: grey;
+
+  }
+
+ 
+
+ 
+
+ 
+
+  @media screen and (max-width: 650px) {
+
+    .column {
+
+      width: 100%;
+
+      display: block;
+
+    }
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style>
+
+
+
+
+<div class="header"></div>
+
+  <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+
+  <label for="openSidebarMenu" class="sidebarIconToggle">
+
+    <div class="spinner diagonal part-1"></div>
+
+    <div class="spinner horizontal"></div>
+
+    <div class="spinner diagonal part-2"></div>
+
+  </label>
+
+  <div id="sidebarMenu">
+
+    <ul class="sidebarMenuInner">
+
+      <li><a href="./home.html" target="blank">Home</a></li>
+      <li><a href="./namejarfinal.html" target="_blank">The Name Jar</a></li>
+      <li><a href="./emmanuelsdreamfinal.html" target="_blank">Emmanuel's Dream</a></li>
+      <li><a href="./sulwefinal.html" target="_blank">Sulwe</a></li>
+      <li><a href="./ilovemyhairfinal.html" target="_blank">I Love My Hair</a></li>
+      <li><a href="./Allthewaystobesmartfinal.html" target="_blank">All The Ways To Be Smart</a></li>
+      <li><a href="./about.html" target="blank">About Us<span>Meet the team</span></a></li>
+
+    </ul>
+
+  </div>
+  <div class="about-section">
+
+
+    <body style="background-color: #9a998f">
+        <!-- <center>
+        <img src="images/A student-led initiative at the british international school, abu dhabi.png" alt="The inclusivity club, a student-led initiative at the british international school abu dhabi">
+        </center> -->
+        
+
+  
+    <center><h2>Meet Our Team</h2></center>
+    <div class="container4">
+      <header role="top">
+        <h1>Taabeer Shah</h1>
+        
+        </div>
+       
+ <center> <p>Hi, I'm in the class of 2023 at the British International School, Abu Dhabi. I am the founder and president of the inclusivity club and I've taken computer science classes all through out high school. The inclusivity club is something that I felt could be utilized as a way to make POC feel more welcomed and included in the school community, whether that's through representation in children books or through our lessons that raise awareness about overlooked issues like microaggressions. Building this website was a way for me to use my computer science skills to bring awareness to important issues; I had a great time doing it!</p> </center>
+ 
+ <div class="container5">
+  <header role="top">
+    <h1>Clark Enge</h1>
+    
+    </div>
+   
+<center> <p>I am in the class of 2023 at Villa Park High School in California. I have been programming almost my whole life in languages such as Python, Java, JavaScript, HTML, CSS, C#, and C++. I play golf for my school and enjoy video games for fun. I helped create the website from scratch in HTML, CSS, and JavaScript and I am very glad for the opportunity; it was a blast! 
+</p> </center>
+<div class="container6">
+  <header role="top">
+    <h1>Faizan Hussaini</h1>
+    </div>
+<center> <p>I am in the class of 2023 at Villa Park High School in California. I love playing competetive chess and math is my passion. I enjoyed building this website, it was a great way to work on my front end skills.</p> </center>
+   
+    
+    <style>
+
+.container4 {
+  position: relative;
+  width: 960px;
+  margin: 0 auto;
+}
+
+.container4 header[role="top"] {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  text-align: center;
+  background-color: rgba(232,85,61,1);
+  border-radius: 100px;
+  border-top: 3px solid #0099FF;
+  border-bottom: 3px solid #0099FF;
+  border-left: 3px solid #FFF;
+  border-right: 3px solid #FFF;
+  position: relative;
+  z-index: 2;
+}
+
+.container4 header[role="top"] h1 {
+ color: #FFF;
+ font-size: 1.7em;
+ padding-top: 35%;
+  
+}
+.container5 {
+  position: relative;
+  width: 960px;
+  margin: 0 auto;
+}
+
+.container5 header[role="top"] {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  text-align: center;
+  background-color: rgb(93, 151, 184);
+  border-radius: 100px;
+  border-top: 3px solid #ff2600;
+  border-bottom: 3px solid #ff2600;
+  border-left: 3px solid #FFF;
+  border-right: 3px solid #FFF;
+  position: relative;
+  z-index: 2;
+}
+
+.container5 header[role="top"] h1 {
+ color: #FFF;
+ font-size: 1.7em;
+ padding-top: 35%;
+  
+}
+.container6 {
+  position: relative;
+  width: 960px;
+  margin: 0 auto;
+}
+
+.container6 header[role="top"] {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  text-align: center;
+  background-color: rgba(213, 157, 219, 0.805);
+  border-radius: 100px;
+  border-top: 3px solid #0099FF;
+  border-bottom: 3px solid #0099FF;
+  border-left: 3px solid #FFF;
+  border-right: 3px solid #FFF;
+  position: relative;
+  z-index: 2;
+}
+
+.container6 header[role="top"] h1 {
+ color: #FFF;
+ font-size: 1.3em;
+ padding-top: 35%;
+  
+}
+p{
+  font-size: 20px;
+   left:150px; 
+   right:100px;
+}
+          
+    .title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  /* font-size: 8.5vw; */
+  text-transform: uppercase;
+}
+h2{
+  font-size: 50px;
+  color: #ffffff;
+  text-transform: none;
+  font-style: italic;
+  font-weight:lighter;
+  font-family: 'Trocchi', serif;
+
+}
+    
+    </style>
+  </div>
+  
+ 

@@ -1,0 +1,907 @@
+
+ 
+
+<!DOCTYPE html>
+
+<style>
+
+
+
+html {
+
+    box-sizing: border-box;
+
+  }
+
+body {
+
+    background: #fff;
+    padding: 0;
+    margin: 0;
+    /* font-family: "Montserrat", sans-serif; */
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.header {
+
+    display: block;
+
+    margin: 0 auto;
+
+    width: 100%;
+
+    max-width: 100%;
+
+    box-shadow: none;
+
+    background-color: #4665f0;
+
+    position: fixed;
+
+    height: 60px!important;
+
+    overflow: hidden;
+
+    z-index: 10;
+
+}
+
+/*.main {
+
+    margin: 0 auto;
+
+    display: block;
+
+    height: 100%;
+
+    margin-top: 60px;
+
+}
+
+.mainInner{
+
+    display: table;
+
+    height: 100%;
+
+    width: 100%;
+
+    text-align: center;
+
+}
+
+.mainInner div{
+
+    display:table-cell;
+
+    vertical-align: middle;
+
+    font-size: 3em;
+
+    font-weight: bold;
+
+    letter-spacing: 1.25px;
+
+}*/
+
+#sidebarMenu {
+
+    height: 100%;
+
+    position: fixed;
+
+    left: 0;
+
+    width: 250px;
+
+    margin-top: 60px;
+
+    transform: translateX(-250px);
+
+    transition: transform 250ms ease-in-out;
+
+    background: linear-gradient(180deg, #4665f0 0%, #58b974 100%);
+
+}
+
+.sidebarMenuInner{
+
+    margin:0;
+
+    padding:0;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.10);
+
+}
+
+.sidebarMenuInner li{
+
+    list-style: none;
+
+    color: #fff;
+
+    text-transform: uppercase;
+
+    font-weight: bold;
+
+    padding: 20px;
+
+    cursor: pointer;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+
+}
+
+.sidebarMenuInner li span{
+
+    display: block;
+
+    font-size: 14px;
+
+    color: rgba(255, 255, 255, 0.50);
+
+}
+
+.sidebarMenuInner li a{
+
+    color: #fff;
+
+    text-transform: uppercase;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    text-decoration: none;
+
+}
+
+input[type="checkbox"]:checked ~ #sidebarMenu {
+
+    transform: translateX(0);
+
+}
+
+ 
+
+input[type=checkbox] {
+
+    transition: all 0.3s;
+
+    box-sizing: border-box;
+
+    display: none;
+
+}
+
+.sidebarIconToggle {
+
+    transition: all 0.3s;
+
+    box-sizing: border-box;
+
+    cursor: pointer;
+
+    position: fixed;
+
+    z-index: 99;
+
+    height: 100%;
+
+    width: 100%;
+
+    top: 22px;
+
+    left: 15px;
+
+    height: 22px;
+
+    width: 22px;
+
+}
+
+.spinner {
+
+    transition: all 0.3s;
+
+    box-sizing: border-box;
+
+    position: absolute;
+
+    height: 3px;
+
+    width: 100%;
+
+    background-color: #fff;
+
+}
+
+.horizontal {
+
+    transition: all 0.3s;
+
+    box-sizing: border-box;
+
+    position: relative;
+
+    float: left;
+
+    margin-top: 3px;
+
+}
+
+.diagonal.part-1 {
+
+    position: relative;
+
+    transition: all 0.3s;
+
+    box-sizing: border-box;
+
+    float: left;
+
+}
+
+.diagonal.part-2 {
+
+    transition: all 0.3s;
+
+    box-sizing: border-box;
+
+    position: relative;
+
+    float: left;
+
+    margin-top: 3px;
+
+}
+
+input[type=checkbox]:checked ~ .sidebarIconToggle > .horizontal {
+
+    transition: all 0.3s;
+
+    box-sizing: border-box;
+
+    opacity: 0;
+
+}
+
+input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-1 {
+
+    transition: all 0.3s;
+
+    box-sizing: border-box;
+
+    transform: rotate(135deg);
+
+    margin-top: 8px;
+
+}
+
+input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
+
+    transition: all 0.3s;
+
+    box-sizing: border-box;
+
+    transform: rotate(-135deg);
+
+    margin-top: -9px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*, *:before, *:after {
+
+    box-sizing: inherit;
+
+  }
+
+ 
+
+  .column {
+
+    float: left;
+
+    width: 33.3%;
+
+    margin-bottom: 16px;
+
+    padding: 0 8px;
+
+  }
+
+ 
+
+  .card {
+
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+    margin: 8px;
+
+  }
+
+ 
+
+  .about-section {
+
+    padding: 50px;
+
+    text-align: center;
+
+
+    color: black;
+
+  }
+
+ 
+
+  .container {
+
+    padding: 0 16px;
+
+  }
+
+ 
+
+  .container::after, .row::after {
+
+    content: "";
+
+    clear: both;
+
+    display: table;
+
+  }
+
+ 
+
+  .title {
+
+    color: grey;
+
+  }
+
+ 
+
+ 
+
+ 
+
+  @media screen and (max-width: 650px) {
+
+    .column {
+
+      width: 100%;
+
+      display: block;
+
+    }
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style>
+
+
+
+
+<div class="header"></div>
+
+  <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+
+  <label for="openSidebarMenu" class="sidebarIconToggle">
+
+    <div class="spinner diagonal part-1"></div>
+
+    <div class="spinner horizontal"></div>
+
+    <div class="spinner diagonal part-2"></div>
+
+  </label>
+
+  <div id="sidebarMenu">
+
+    <ul class="sidebarMenuInner">
+
+      <li><a href="./home.html" target="blank">Home</a></li>
+      <li><a href="./namejarfinal.html" target="_blank">The Name Jar</a></li>
+      <li><a href="./emmanuelsdreamfinal.html" target="_blank">Emmanuel's Dream</a></li>
+      <li><a href="./sulwefinal.html" target="_blank">Sulwe</a></li>
+      <li><a href="./ilovemyhairfinal.html" target="_blank">I Love My Hair</a></li>
+      <li><a href="./Allthewaystobesmartfinal.html" target="_blank">All The Ways To Be Smart</a></li>
+      <li><a href="./about.html" target="blank">About Us<span>Meet the team</span></a></li>
+    </ul>
+
+  </div>
+  <div class="about-section">
+    <style>
+      h4 {
+  font-family: 'Waiting for the Sunrise', cursive; 
+  font-size:20px; 
+  margin: 10px 30px; 
+  letter-spacing: 5px; 
+  font-weight: bold;
+  text-align: center;
+}
+p {
+  text-align: center;
+  font-family: "Times New Roman", Times, serif;
+}
+     
+
+              </style>
+
+
+<body>
+<h1>I Love My Hair Lesson</h1>
+<style>
+  h1{
+    font-size:40px; 
+  text-align: center;
+  }
+</style>
+<br></br>
+<h4>Task 1: Listen to the read along of the book: 'I Love My Hair' by Natasha A Tarpley </h4>
+<center><iframe width="560" height="315" 
+  src="https://www.youtube.com/embed/FfXijL4sEfo" frameborder="0" 
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; 
+  gyroscope; picture-in-picture" allowfullscreen></iframe></iframe></center>
+</style>
+<h4>Task 2: Discussion Questions</h4>
+<p>Have you ever heard the term “self-esteem”?</p>
+<p>What do you think it means?</p>
+<center>
+<button class= "button-85"onclick="myFunction()">Learn about self esteem!</button>
+</center>
+<script>
+  function myFunction() 
+  {
+    window.open("selfesteem.html");
+}  
+</script>
+<style>
+  .button-85 
+{
+  padding: 0.6em 2em;
+  border:none;
+  outline:none;
+  color:rgb(255, 255, 255);
+  background:#111;
+  cursor:pointer;
+  position:relative;
+  z-index:0;
+  border-radius:10px;
+  user-select:none;
+  -webkit-user-select:none;
+  touch-action:manipulation;
+}
+
+.button-85:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-button-85 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowing-button-85 {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.button-85:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+</style>
+<br></br>
+<h4>Task 3: Complete the table below</h4>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+</style>
+</head>
+  <link href="https://fonts.googleapis.com/css?family=Waiting+for+the+Sunrise" rel="stylesheet" type="text/css"/>
+<!-- <h4>Traits Table</h4> -->
+
+<body>
+  <div id="pricing">
+      <div class="price_card alpha">
+        <div class="header2">
+          <span class="price"></span>
+          <div class="name">Things we can't change</div>
+        </div>
+        <ul class="features">
+          <li>Some examples:</li>
+          <li>Natural eye colour and race</li>
+          <textarea id="w3review" name="w3review" rows="8" cols="30">
+          </textarea>
+        </ul>
+        <br></br>
+        <span class="tip"></span>
+      </div>
+      <div class="price_card bravo">
+        <div class="header2">
+          <span class="price"></span>
+          <div class="name">Things we can change with hard work</div>
+        </div>
+        <ul class="features">
+          <li>Some examples:</li>
+          <li>Mathematics skills and art skills</li>
+          <textarea id="w3review" name="w3review" rows="8" cols="30">
+          </textarea>
+        </ul>
+        <br></br>
+        <span class="tip"></span>
+      </div>
+      <div class="price_card charlie">
+        <div class="header2">
+          <span class="price"></span>
+          <div class="name">Things that can change over time</div>
+        </div>
+        <ul class="features">
+          <li>Some examples</li>
+          <li>Height and favourite ice cream flavour</li>
+          <textarea id="w3review" name="w3review" rows="8" cols="30">
+          </textarea>
+        </ul>
+        <br></br>
+      </div>
+    </div>
+</body>
+
+<style>
+  @import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700');
+
+body{
+background-color: rgb(237, 237, 237);
+}
+
+#pricing{
+width: 989px;
+margin: 100px auto;
+font-family: 'Open Sans', Helvetica;
+}
+
+.price_card{
+width: 300px;
+background: rgb(255, 255, 255);
+display: inline-table;
+top: 0;
+}
+.price_card:not(:last-child){
+margin-right: 40px;
+}
+.header2{
+color: rgb(255, 255, 255);
+}
+.alpha .header2{
+background: rgb(245, 166, 35);
+}
+.bravo .header2{
+background: rgb(246, 77, 77);
+}
+.charlie .header2{
+background: rgb(48, 219, 181);
+}
+.price{
+width: 100%;
+font-size: 80px;
+font-weight: 300;
+display: block;
+text-align: center;
+padding: 30px 0 10px;
+}
+.name{
+width: 100%;
+font-size: 15px;
+font-weight: 700;
+display: block;
+text-align: center;
+padding: 0 0 30px;
+}
+.features{
+list-style: none;
+text-align: center;
+color: rgb(138, 138, 138);
+margin: 0;
+padding: 0;
+}
+.features li{
+margin: 0 35px;
+padding: 20px 15px;
+width: 200px;
+}
+.features li:not(:last-child){
+border: 1px solid rgb(242, 242, 242);
+border-top: 0;
+border-left: 0;
+border-right: 0;
+}
+
+</style>
+<h4>Task 4: Use your imagination</h4>
+<p>Let's imagine a world where...</p>
+<center>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h3 class="animate-charcter">everyone looks the same</h3>
+      <br></br>
+      <h3 class="animate-charcter2">everyone thinks the same</h3>
+      <br></br>
+      <h3 class="animate-charcter3">everyone acts the same</h3>
+    </div>
+  </div>
+</div>
+</center>
+
+<style>
+  .animate-charcter, 
+  .animate-charcter2, 
+  .animate-charcter3{
+  background-image: linear-gradient(
+    -225deg,
+    #231557 0%,
+    #44107a 29%,
+    #ff1361 67%,
+    #fff800 100%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite;
+  display: inline-block;
+      font-size: 40px;
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
+</style>
+<p>What would it be like to live in that world? Would you like to live there?</p>
+<br></br>
+<h4>Conclusion: Key Takeaways!</h4>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+
+<div class="wrap">
+  <div class="line">
+    <div class="left">
+      <div class="content">
+        <span class="spanSlow">Treat</span>
+      </div>
+    </div><!--
+    --><div class="right">
+      <div class="content">
+        <span class="spanSlow">Treat</span>
+      </div>
+    </div>
+  </div>
+  <div class="line">
+    <div class="left">
+      <div class="content">
+        <span class="spanSlow">everyone</span>
+      </div>
+    </div><!--
+    --><div class="right">
+      <div class="content">
+        <span class="spanSlow">everyone</span>
+      </div>
+    </div>
+    </div>
+    <div class="line">
+        <div class="left">
+          <div class="content">
+            <span class="spanFast">with</span>
+          </div>
+        </div><!--
+        --><div class="right">
+          <div class="content">
+            <span class="spanFast">with</span>
+          </div>
+        </div>
+      </div>
+      <div class="line">
+          <div class="left">
+            <div class="content">
+              <span class="spanSlow">respect</span>
+            </div>
+          </div><!--
+          --><div class="right">
+            <div class="content">
+              <span class="spanSlow">respect</span>
+            </div>
+          </div>
+        </div>
+</div>
+<style>
+.line {
+width: 100vw;
+}
+.left, .right {
+width: 50vw;
+overflow: hidden;
+display: inline-block;
+}
+.left {
+color:pink;
+transform: skew(0deg, -15deg);
+}
+.right {
+color: black;
+transform: skew(0deg, 15deg);
+}
+.left .content {
+width: 100vw;
+text-align: center;
+}
+.right .content {
+width: 100vw;
+text-align: center;
+transform: translate(-50vw);
+}
+span {
+display: inline-block;
+font-family: 'Montserrat', sans-serif;
+font-size: 5vw;
+text-transform: uppercase;
+line-height: .8;
+transition: ease-out .6s;
+}
+</style>
+<script>
+window.addEventListener('mousemove', handleMouseMove);
+window.addEventListener('resize', handleWindowResize);
+
+const spansSlow = document.querySelectorAll('.spanSlow');
+const spansFast = document.querySelectorAll('.spanFast');
+
+let width = window.innerWidth;
+
+function handleMouseMove(e) {
+let normalizedPosition = e.pageX / (width/2) - 1;
+let speedSlow = 100 * normalizedPosition;
+let speedFast = 200 * normalizedPosition;
+spansSlow.forEach((span) => {
+  span.style.transform = `translate(${speedSlow}px)`;
+});
+spansFast.forEach((span) => {
+  span.style.transform = `translate(${speedFast}px)`
+})
+}
+//we need to recalculate width when the window is resized
+function handleWindowResize() {
+width = window.innerWidth;
+}
+</script>
+<p>What other lessons did you learn today?</p>
+</body>
+
+
+
+
+
+  
+
+
+  
+  
+  
+  </div>
+  
+ 

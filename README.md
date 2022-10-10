@@ -468,7 +468,7 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
 
     <body style="background-color: #eef8eb;">
         <center>
-        ![A student-led initiative at the british international school, abu dhabi](https://user-images.githubusercontent.com/107323025/194915224-2d13ef9c-e28a-429b-975a-89514c1e118d.png)
+      ![My Image](A student-led initiative at the british international school, abu dhabi.png)
         </center>
         
 
